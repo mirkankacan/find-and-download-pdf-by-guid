@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IZBORDROModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="IZBORDROEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="IdtBordroSmsLog" EntityType="IZBORDROModel.IdtBordroSmsLog" />
+    <EntitySet Name="IdtBordroPersonel" EntityType="IZBORDROModel.IdtBordroPersonel" />
+    <EntitySet Name="IdvBordroKonum" EntityType="IZBORDROModel.IdvBordroKonum" />
+    <EntitySet Name="IdtBordroKayit" EntityType="IZBORDROModel.IdtBordroKayit" />
+    <EntitySet Name="IdtBordroPdfLog" EntityType="IZBORDROModel.IdtBordroPdfLog" />
+    <EntitySet Name="IdtBordroHataLog" EntityType="IZBORDROModel.IdtBordroHataLog" />
+    <EntitySet Name="IdtBordroTcTel" EntityType="IZBORDROModel.IdtBordroTcTel" />
+    <FunctionImport Name="IdfBordroMesaj" IsComposable="true" ReturnType="Collection(IZBORDROModel.IdfBordroMesaj_Result)">
+      <Parameter Name="YIL" Mode="In" Type="Int32" />
+      <Parameter Name="AY" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="IdfBordroMesaj_Eksik" IsComposable="true" ReturnType="Collection(IZBORDROModel.IdfBordroMesaj_Eksik_Result)">
+      <Parameter Name="YIL" Mode="In" Type="Int32" />
+      <Parameter Name="AY" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="IdtBordroSmsLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="YIL" Type="Int32" Nullable="false" />
+    <Property Name="AY" Type="Int32" Nullable="false" />
+    <Property Name="TCNO" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="TELNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MESAJ" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LOG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LOG_TIME" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="IdtBordroPersonel">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="TCNO" />
+      <PropertyRef Name="ISIM_SOYISIM" />
+      <PropertyRef Name="TELEFON" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TCNO" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="ISIM_SOYISIM" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TELEFON" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EPOSTA" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="IdvBordroKonum">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="YIL" />
+      <PropertyRef Name="AY" />
+      <PropertyRef Name="TCNO" />
+      <PropertyRef Name="PATH" />
+      <PropertyRef Name="UNIQUE_ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="YIL" Type="Int32" Nullable="false" />
+    <Property Name="AY" Type="Int32" Nullable="false" />
+    <Property Name="TCNO" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="PATH" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UNIQUE_ID" Type="Guid" Nullable="false" />
+    <Property Name="PAGE" Type="Int32" />
+    <Property Name="Konum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="IdtBordroKayit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="YIL" Type="Int32" Nullable="false" />
+    <Property Name="AY" Type="Int32" Nullable="false" />
+    <Property Name="TCNO" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="PATH" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UNIQUE_ID" Type="Guid" Nullable="false" />
+    <Property Name="PAGE" Type="Int32" />
+  </EntityType>
+  <EntityType Name="IdtBordroPdfLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BORDRO_ID" Type="Int32" Nullable="false" />
+    <Property Name="INDIRILEN_KONUM" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DIS_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IC_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TARIH" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="IdtBordroHataLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DIS_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IC_IP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TARIH" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="HATA_NOT" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="MESSAGE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="INNER_EXCEPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="INDIRILEN_KONUM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="IdtBordroTcTel">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="TCKIMLIKNO" />
+      <PropertyRef Name="TELEFON" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TCKIMLIKNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TELEFON" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="IdfBordroMesaj_Result">
+    <Property Type="Int32" Name="YIL" Nullable="false" />
+    <Property Type="Int32" Name="AY" Nullable="false" />
+    <Property Type="String" Name="TCNO" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="PATH" Nullable="false" />
+    <Property Type="Guid" Name="UNIQUE_ID" Nullable="false" />
+    <Property Type="Int32" Name="PAGE" Nullable="true" />
+    <Property Type="String" Name="ISIM_SOYISIM" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="TELEFON" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="EPOSTA" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Mesaj" Nullable="true" MaxLength="1373" />
+  </ComplexType>
+  <ComplexType Name="IdfBordroMesaj_Eksik_Result">
+    <Property Type="Int32" Name="YIL" Nullable="false" />
+    <Property Type="Int32" Name="AY" Nullable="false" />
+    <Property Type="String" Name="TCNO" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="PATH" Nullable="false" />
+    <Property Type="Guid" Name="UNIQUE_ID" Nullable="false" />
+    <Property Type="Int32" Name="PAGE" Nullable="true" />
+    <Property Type="String" Name="ISIM_SOYISIM" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="TELEFON" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EPOSTA" Nullable="true" MaxLength="250" />
+  </ComplexType>
+</Schema>

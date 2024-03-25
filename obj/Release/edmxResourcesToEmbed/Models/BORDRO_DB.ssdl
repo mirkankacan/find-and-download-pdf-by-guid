@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IZBORDROModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="IdtBordroHataLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="INDIRILEN_KONUM" Type="nvarchar(max)" />
+    <Property Name="DIS_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IC_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TARIH" Type="datetime" Nullable="false" />
+    <Property Name="HATA_NOT" Type="nvarchar" MaxLength="300" />
+    <Property Name="MESSAGE" Type="nvarchar(max)" />
+    <Property Name="INNER_EXCEPTION" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="IdtBordroKayit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="YIL" Type="int" Nullable="false" />
+    <Property Name="AY" Type="int" Nullable="false" />
+    <Property Name="TCNO" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="PATH" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UNIQUE_ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PAGE" Type="int" />
+  </EntityType>
+  <EntityType Name="IdtBordroPdfLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BORDRO_ID" Type="int" Nullable="false" />
+    <Property Name="INDIRILEN_KONUM" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DIS_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IC_IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TARIH" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IZBORDRO.dbo.IdtBordroPersonel' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="IdtBordroPersonel">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="TCNO" />
+      <PropertyRef Name="ISIM_SOYISIM" />
+      <PropertyRef Name="TELEFON" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TCNO" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="ISIM_SOYISIM" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="TELEFON" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EPOSTA" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="IdtBordroSmsLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="YIL" Type="int" Nullable="false" />
+    <Property Name="AY" Type="int" Nullable="false" />
+    <Property Name="TCNO" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="TELNO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MESAJ" Type="nvarchar(max)" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LOG" Type="nvarchar(max)" />
+    <Property Name="LOG_TIME" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IZBORDRO.dbo.IdtBordroTcTel' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="IdtBordroTcTel">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="TCKIMLIKNO" />
+      <PropertyRef Name="TELEFON" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TCKIMLIKNO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TELEFON" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IZBORDRO.dbo.IdvBordroKonum' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="IdvBordroKonum">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="YIL" />
+      <PropertyRef Name="AY" />
+      <PropertyRef Name="TCNO" />
+      <PropertyRef Name="PATH" />
+      <PropertyRef Name="UNIQUE_ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="YIL" Type="int" Nullable="false" />
+    <Property Name="AY" Type="int" Nullable="false" />
+    <Property Name="TCNO" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="PATH" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UNIQUE_ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PAGE" Type="int" />
+    <Property Name="Konum" Type="nvarchar(max)" />
+  </EntityType>
+  <Function Name="IdfBordroMesaj" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="YIL" Type="int" Mode="In" />
+    <Parameter Name="AY" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="YIL" Type="int" Nullable="false" />
+          <Property Name="AY" Type="int" Nullable="false" />
+          <Property Name="TCNO" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="PATH" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UNIQUE_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PAGE" Type="int" />
+          <Property Name="ISIM_SOYISIM" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="TELEFON" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EPOSTA" Type="nvarchar" MaxLength="250" />
+          <Property Name="Mesaj" Type="nvarchar" MaxLength="1373" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="IdfBordroMesaj_Eksik" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="YIL" Type="int" Mode="In" />
+    <Parameter Name="AY" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="YIL" Type="int" Nullable="false" />
+          <Property Name="AY" Type="int" Nullable="false" />
+          <Property Name="TCNO" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="PATH" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UNIQUE_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PAGE" Type="int" />
+          <Property Name="ISIM_SOYISIM" Type="nvarchar" MaxLength="250" />
+          <Property Name="TELEFON" Type="nvarchar" MaxLength="50" />
+          <Property Name="EPOSTA" Type="nvarchar" MaxLength="250" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <EntityContainer Name="IZBORDROModelStoreContainer">
+    <EntitySet Name="IdtBordroHataLog" EntityType="Self.IdtBordroHataLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IdtBordroKayit" EntityType="Self.IdtBordroKayit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IdtBordroPdfLog" EntityType="Self.IdtBordroPdfLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IdtBordroSmsLog" EntityType="Self.IdtBordroSmsLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IdtBordroPersonel" EntityType="Self.IdtBordroPersonel" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [IdtBordroPersonel].[ID] AS [ID], 
+    [IdtBordroPersonel].[TCNO] AS [TCNO], 
+    [IdtBordroPersonel].[ISIM_SOYISIM] AS [ISIM_SOYISIM], 
+    [IdtBordroPersonel].[TELEFON] AS [TELEFON], 
+    [IdtBordroPersonel].[EPOSTA] AS [EPOSTA]
+    FROM [dbo].[IdtBordroPersonel] AS [IdtBordroPersonel]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="IdtBordroTcTel" EntityType="Self.IdtBordroTcTel" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [IdtBordroTcTel].[ID] AS [ID], 
+    [IdtBordroTcTel].[TCKIMLIKNO] AS [TCKIMLIKNO], 
+    [IdtBordroTcTel].[TELEFON] AS [TELEFON]
+    FROM [dbo].[IdtBordroTcTel] AS [IdtBordroTcTel]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="IdvBordroKonum" EntityType="Self.IdvBordroKonum" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [IdvBordroKonum].[ID] AS [ID], 
+    [IdvBordroKonum].[YIL] AS [YIL], 
+    [IdvBordroKonum].[AY] AS [AY], 
+    [IdvBordroKonum].[TCNO] AS [TCNO], 
+    [IdvBordroKonum].[PATH] AS [PATH], 
+    [IdvBordroKonum].[UNIQUE_ID] AS [UNIQUE_ID], 
+    [IdvBordroKonum].[PAGE] AS [PAGE], 
+    [IdvBordroKonum].[Konum] AS [Konum]
+    FROM [dbo].[IdvBordroKonum] AS [IdvBordroKonum]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

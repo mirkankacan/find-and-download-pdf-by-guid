@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IZBORDROModelStoreContainer" CdmEntityContainer="IZBORDROEntities">
+    <EntitySetMapping Name="IdtBordroSmsLog">
+      <EntityTypeMapping TypeName="IZBORDROModel.IdtBordroSmsLog">
+        <MappingFragment StoreEntitySet="IdtBordroSmsLog">
+          <ScalarProperty Name="LOG_TIME" ColumnName="LOG_TIME" />
+          <ScalarProperty Name="LOG" ColumnName="LOG" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="MESAJ" ColumnName="MESAJ" />
+          <ScalarProperty Name="TELNO" ColumnName="TELNO" />
+          <ScalarProperty Name="TCNO" ColumnName="TCNO" />
+          <ScalarProperty Name="AY" ColumnName="AY" />
+          <ScalarProperty Name="YIL" ColumnName="YIL" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IdtBordroPersonel">
+      <EntityTypeMapping TypeName="IZBORDROModel.IdtBordroPersonel">
+        <MappingFragment StoreEntitySet="IdtBordroPersonel">
+          <ScalarProperty Name="EPOSTA" ColumnName="EPOSTA" />
+          <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+          <ScalarProperty Name="ISIM_SOYISIM" ColumnName="ISIM_SOYISIM" />
+          <ScalarProperty Name="TCNO" ColumnName="TCNO" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IdvBordroKonum">
+      <EntityTypeMapping TypeName="IZBORDROModel.IdvBordroKonum">
+        <MappingFragment StoreEntitySet="IdvBordroKonum">
+          <ScalarProperty Name="Konum" ColumnName="Konum" />
+          <ScalarProperty Name="PAGE" ColumnName="PAGE" />
+          <ScalarProperty Name="UNIQUE_ID" ColumnName="UNIQUE_ID" />
+          <ScalarProperty Name="PATH" ColumnName="PATH" />
+          <ScalarProperty Name="TCNO" ColumnName="TCNO" />
+          <ScalarProperty Name="AY" ColumnName="AY" />
+          <ScalarProperty Name="YIL" ColumnName="YIL" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IdtBordroKayit">
+      <EntityTypeMapping TypeName="IZBORDROModel.IdtBordroKayit">
+        <MappingFragment StoreEntitySet="IdtBordroKayit">
+          <ScalarProperty Name="PAGE" ColumnName="PAGE" />
+          <ScalarProperty Name="UNIQUE_ID" ColumnName="UNIQUE_ID" />
+          <ScalarProperty Name="PATH" ColumnName="PATH" />
+          <ScalarProperty Name="TCNO" ColumnName="TCNO" />
+          <ScalarProperty Name="AY" ColumnName="AY" />
+          <ScalarProperty Name="YIL" ColumnName="YIL" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IdtBordroPdfLog">
+      <EntityTypeMapping TypeName="IZBORDROModel.IdtBordroPdfLog">
+        <MappingFragment StoreEntitySet="IdtBordroPdfLog">
+          <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+          <ScalarProperty Name="IC_IP" ColumnName="IC_IP" />
+          <ScalarProperty Name="DIS_IP" ColumnName="DIS_IP" />
+          <ScalarProperty Name="INDIRILEN_KONUM" ColumnName="INDIRILEN_KONUM" />
+          <ScalarProperty Name="BORDRO_ID" ColumnName="BORDRO_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IdtBordroHataLog">
+      <EntityTypeMapping TypeName="IZBORDROModel.IdtBordroHataLog">
+        <MappingFragment StoreEntitySet="IdtBordroHataLog">
+          <ScalarProperty Name="INNER_EXCEPTION" ColumnName="INNER_EXCEPTION" />
+          <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+          <ScalarProperty Name="HATA_NOT" ColumnName="HATA_NOT" />
+          <ScalarProperty Name="TARIH" ColumnName="TARIH" />
+          <ScalarProperty Name="IC_IP" ColumnName="IC_IP" />
+          <ScalarProperty Name="DIS_IP" ColumnName="DIS_IP" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
